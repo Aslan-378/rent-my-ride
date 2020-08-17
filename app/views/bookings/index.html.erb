@@ -1,0 +1,13 @@
+<h1>Your Bookings</h1>
+<div>
+  <%= @bookings.each do |booking| %>
+    <div>
+      <%= link_to booking.id, user_booking_path(booking) %>
+      <%= link_to user_booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <p>Delete</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "add a new booking", new_user_booking_path %>
