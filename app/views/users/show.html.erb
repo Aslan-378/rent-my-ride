@@ -17,4 +17,11 @@
   <p>--------------------------------</p>
 <% end %>
 
-
+<h2>Bookings for my vehicles</h2>
+<% if @user.vehicle_bookings.empty?%>
+  <h5>doesnt look like anyones booked ur vehhicles yet</h5>
+<% else %>
+  <% @user.vehicle_bookings.each do |f| %>
+    <p><%= f %></p>
+  <% end %>
+<% end %>

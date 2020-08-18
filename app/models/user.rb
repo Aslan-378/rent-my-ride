@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :vehicles
   has_many :vehicle_bookings, through: :vehicles, source: :bookings
   has_many :reviews, through: :bookings
-  has_many :recieved_reviews, through: :vehicle_bookings, source: :review
+  has_many :received_reviews, through: :vehicle_bookings, source: :review
 end
 
  def build_profile
