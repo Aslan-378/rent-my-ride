@@ -2,10 +2,11 @@
 
 <% @vehicles.each do |vehicle| %>
   <ul>
-    <li><%= vehicle.model %>>| <% vehicle.category %></li>
-    <li><%= vehicle.description %></li>
-    <li><%= vehicle.price %>£ per day</li>
+    <li><%= vehicle.category %> | <%= vehicle.model %></li>
+    <li>From £<%= vehicle.price %> per day</li>
+    <li><%= link_to'See more', vehicle_path(vehicle) %></li>
   </ul>
 <% end %>
 
-<%= link_to"Back to home page", root_path%>
+
+<%= link_to"Back to home page", root_path, class: "btn btn-primary" %>
