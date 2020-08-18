@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
 
-  resources :users, only: [:show, :new, :create, :destroy] do
-    resources :vehicles, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    resources :vehicles, only: [:new, :create, :show, :index]
     resources :bookings, only: [:new, :create, :show, :index]
   end
   resources :bookings, only: [:destroy]
