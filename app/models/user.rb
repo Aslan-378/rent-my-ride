@@ -13,6 +13,3 @@ class User < ApplicationRecord
   has_many :recieved_reviews, through: :vehicle_bookings, source: :review
 end
 
- def build_profile
-    Profile.create(user: self)
-  end
