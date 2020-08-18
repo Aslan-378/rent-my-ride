@@ -1,0 +1,5 @@
+<h1>Create a new Vehicle</h1>
+<%= simple_form_for @vehicle do |f| %>
+  <%= f.input :model %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
