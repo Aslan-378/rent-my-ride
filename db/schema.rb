@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 2020_08_18_094308) do
 
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_094308) do
   end
 
   create_table "vehicles", force: :cascade do |t|
-    t.string "type"
+    t.string "category"
     t.string "model"
     t.text "description"
     t.integer "price"
