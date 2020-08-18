@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_114757) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "price"
-    t.boolean "confirmed"
+    t.boolean "confirmed", default: false
     t.bigint "vehicle_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

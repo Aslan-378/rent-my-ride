@@ -1,0 +1,6 @@
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :name %>
+  <%= f.date_select :birthday %>
+  <%= f.text_field :summary %>
+  <%= f.button :submit, 'Save', class: 'submit' %>
+ <% end %>

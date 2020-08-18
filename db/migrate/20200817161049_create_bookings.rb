@@ -4,7 +4,7 @@ class CreateBookings < ActiveRecord::Migration[6.0]
       t.datetime :start_date
       t.datetime :end_date
       t.integer :price
-      t.boolean :confirmed
+      t.boolean :confirmed, default: false
       t.references :vehicle, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 
