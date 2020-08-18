@@ -1,0 +1,11 @@
+<h1>All vehicles (<%= Vehicle.count %>)</h1>
+
+<% @vehicles.each do |vehicle| %>
+  <ul>
+    <li><%= vehicle.model %>>| <% vehicle.category %></li>
+    <li><%= vehicle.description %></li>
+    <li><%= vehicle.price %>£ per day</li>
+  </ul>
+<% end %>
+
+<%= link_to"Back to home page", root_path%>
