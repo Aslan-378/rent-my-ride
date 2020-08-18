@@ -1,0 +1,15 @@
+
+.navbar-bike {
+  justify-content: space-between;
+  background: #FF8C00;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.navbar-bike .navbar-collapse {
+  flex-grow: 2;
+}
+
+.navbar-bike .navbar-brand img {
+  width: 80px;
+  border-radius: 50%
+}

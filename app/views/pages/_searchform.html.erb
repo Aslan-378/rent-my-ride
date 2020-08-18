@@ -1,0 +1,19 @@
+<form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+     <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+      <div id="myDropdown" class="dropdown-content">
+       <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <a href="#location">Location</a>
+          <a href="#start_date">Start date</a>
+          <a href="#end_date">End Date</a>
+          <a href="#type_of_vehicle">Type of Vehicle</a>
+        </div>
+      </div>
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+</form>
+
