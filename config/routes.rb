@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
   resources :users, only: [:new, :create, :show] do
-    resources :bookings, only: [:show]
+    resources :bookings, only: [:show, :index]
   end
   resources :bookings, only: [:destroy]
   resources :vehicles do
