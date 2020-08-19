@@ -5,7 +5,7 @@
     </div>
     <div class="vehicle-container">
         <% @vehicles.each do |vehicle| %>
-            <% if @user.vehicle_bookings.any? %>
+            <% if vehicle.model === "Émonda SL 7" %>
                 <div class="vehicle-card vehicle-card--promo">
             <% else %>
                 <div class="vehicle-card">
