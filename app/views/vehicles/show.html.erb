@@ -23,6 +23,14 @@
   </a>
 </div>
 
-  <p><strong>Vehicle category</strong>: <%= @vehicle.category %></p>
+<p><strong>Vehicle category</strong>: <%= @vehicle.category %></p>
 
+<%#= render "bookingform", vehicle: @vehicle, booking: @booking %>
+
+<div class="booking form">
+  <%= simple_form_for [@vehicle, @booking] do |f| %>
+    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
 </div>

@@ -13,11 +13,14 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @vehicle = Vehicle.find(params[:vehicle_id])
     @booking = Booking.new(booking_params)
+    @booking.vehicle = @vehicle
+    @booking.user = current_user
     if @booking.save
-      redirect_to user_bookings_path
+      redirect_to user_booking_path(current_user, @booking)
     else
-      render 'bookings/show'
+      render 'vehicles/show'
     end
   end
 
@@ -30,6 +33,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    parmas.require(:booking).permit(:price, :start_date, :end_date, :confirmed)
+    params.require(:booking).permit(:price, :start_date, :end_date, :confirmed, :vehicle)
   end
 end

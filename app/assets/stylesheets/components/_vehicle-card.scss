@@ -1,0 +1,50 @@
+.vehicle-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.vehicle-card {
+    $this: &;
+
+    &__title {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+        padding-left: 10px;
+        text-align: left;
+    }
+
+    &__info-container {
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        margin: 10px;
+    }
+
+    &__image-container {
+
+    }
+
+    &__image {
+
+    }
+
+    &__price {
+        font-size: 12px;
+        opacity: .7;
+        margin: 0;
+        padding-left: 10px;
+        text-align: left;
+      }
+    
+
+    &--promo {
+        font-weight: bold;
+
+        #{$this}__info {
+            // do stuff here
+            font-size: 26px;
+        }
+    }
+}
