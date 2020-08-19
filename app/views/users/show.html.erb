@@ -1,43 +1,76 @@
-<h1></h1>
-<h2 class="">My vehicles</h2>
-<div class="vehicle-container">
-    <% @vehicles.each do |vehicle| %>
-    <% if vehicle.model === "Émonda SL 7" %>
-        <div class="vehicle-card vehicle-card--promo">
-    <% else %>
-        <div class="vehicle-card">
-    <% end %>
-    <div class="vehicle-card__info-container">
-        <div class="vehicle-card__title">
-        <h3>Vehicle</h3>
+<h1>User Page</h1>
+<div class="user-container">
+    <div class="vehicle-card__header">
+        <h2 class="">My vehicles</h2>
+    </div>
+    <div class="vehicle-container">
+        <% @vehicles.each do |vehicle| %>
+        <% if @user.vehicle_bookings.any? %>
+            <div class="vehicle-card vehicle-card--promo">
+        <% else %>
+            <div class="vehicle-card">
+        <% end %>
+        <div class="vehicle-card__info-container">
+            <div class="vehicle-card__title">
+                <h3><%= vehicle.category %></h3>
+            </div>
+            <div class="vehicle-card__image-container">
+                <img src="https://kitt.lewagon.com/placeholder/users/random" class="vehicle-card__image" />
+            </div>
+            <div class="vehicle-card__info">
+                <p class="vehicle-card__model"><%= vehicle.model %></p>
+                <p class="vehicle-card__description"><%= vehicle.description %></p>
+                <p class="vehicle-card__price"><%= vehicle.price %></p>
+            </div>    
         </div>
-        <div class="vehicle-card__image-container">
-        <p class="vehicle-card__image">image</p>
         </div>
-        <div class="vehicle-card__info">
-            <p class="vehicle-card__model"><%= vehicle.model %></p>
-            <p class="vehicle-card__description">vehicle.description</p>
-            <p class="vehicle-card__price">price</p>
-            <p>----------------------</p>
-        </div>    
+        <% end %>
+    </div>
+    <div class="vehicle-card__button">
+        <%= link_to "add a new vehicle",  new_vehicle_path, class: "btn btn-primary"%>
+    </div>
+    <div class="vehicle-card__header">
+        <h2>Manage my bookings</h2>
+    </div>
+    <div class="booking-container">
+        <div class="booking-card">     
+        </div>
+        <div class="vehicle-container">
+            <% @vehicles.each do |vehicle| %>
+                <% if @user.vehicle_bookings.any? %>
+                    <div class="vehicle-card vehicle-card--promo">
+                <% else %>
+                    <div class="vehicle-card">
+                <% end %>
+                <div class="vehicle-card__info-container">
+                    <div class="vehicle-card__title">
+                        <h3><%= vehicle.category %></h3>
+                    </div>
+                    <div class="vehicle-card__image-container">
+                        <img src="https://kitt.lewagon.com/placeholder/users/random" class="vehicle-card__image" />
+                    </div>
+                    <div class="vehicle-card__info">
+                        <p class="vehicle-card__model"><%= vehicle.model %></p>
+                        <p class="vehicle-card__description"><%= vehicle.description %></p>
+                        <p class="vehicle-card__price"><%= vehicle.price %></p>
+                    </div>    
+                </div>
+                </div>
+            <% end %>
         </div>
     </div>
-    <% end %>
+    <div class="vehicle-card__header">
+        <h2>Bookings for my vehicles</h2>
+    </div>
+    <div class="vehicle-bookings">
+        <% if @user.vehicle_bookings.empty?%>
+            <div class="vehicle-bookings__description">
+                <h5>It does not look like you have any bookings currently</h5>
+            </div>
+        <% else %>
+            <% @user.vehicle_bookings.each do |f| %>
+                <p><%= f %></p>
+            <% end %>
+        <% end %>
+    </div>
 </div>
-<%= link_to "add a new vehicle",  new_vehicle_path %>
-<p>//////////////////////////////////////</p>
-<h2>Manage my ads</h2>
-<% @bookings.each do |booking| %>
-  <p><%= booking.vehicle.model %></p>
-  <p><%= booking.vehicle.category %></p>
-  <p>--------------------------------</p>
-<% end %>
-
-<h2>Bookings for my vehicles</h2>
-<% if @user.vehicle_bookings.empty?%>
-  <h5>doesnt look like anyones booked ur vehhicles yet</h5>
-<% else %>
-  <% @user.vehicle_bookings.each do |f| %>
-    <p><%= f %></p>
-  <% end %>
-<% end %>

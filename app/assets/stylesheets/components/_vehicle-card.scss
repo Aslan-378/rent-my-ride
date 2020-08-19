@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 
 .vehicle-card {
@@ -16,35 +17,63 @@
     }
 
     &__info-container {
+        display: flex;
         overflow: hidden;
         background: white;
         box-shadow: 0 0 15px rgba(0,0,0,0.2);
         margin: 10px;
+        width: 80vh;
+        height: 250px;
     }
 
     &__image-container {
-
+        width: 200px;
     }
 
     &__image {
-
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        padding: 10px;
     }
 
     &__price {
         font-size: 12px;
         opacity: .7;
-        margin: 0;
-        padding-left: 10px;
-        text-align: left;
       }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 8px;
+    }
+
+    &__description {
+        font-weight: normal;
+        font-size: 15px;
+    }
+
+    &__model {
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    &__header {
+        margin: 16px;
+    }
     
+    &__button {
+        display: flex;
+        justify-content: center;
+        padding: 24px;
+    }
 
     &--promo {
-        font-weight: bold;
 
-        #{$this}__info {
-            // do stuff here
-            font-size: 26px;
+        #{$this}__info-container {
+            box-shadow: 0 0 15px rgba(9, 255, 0, 0.9);
         }
+
     }
 }
