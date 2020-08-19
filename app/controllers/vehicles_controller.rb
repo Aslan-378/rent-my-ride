@@ -11,4 +11,11 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.find(params[:id])
     @booking = Booking.new
   end
+
+  def create 
+
+  end
+  private
+
+  
 end
