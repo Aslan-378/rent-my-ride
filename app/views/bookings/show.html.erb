@@ -2,4 +2,10 @@
 
 <h4><% @booking.vehicle.model %></h4>
 
-<%= link_to "Back to all bookings", user_bookings_path(current_user) %>
+<%= link_to "Back to all bookings", user_bookings_path(current_user), class: "btn btn-primary" %>
+
+<%= link_to "Delete booking",
+            booking_path(@booking),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+
