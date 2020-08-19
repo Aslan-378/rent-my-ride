@@ -5,25 +5,23 @@
     </div>
     <div class="vehicle-container">
         <% @vehicles.each do |vehicle| %>
-        <% if @user.vehicle_bookings.any? %>
-            <div class="vehicle-card vehicle-card--promo">
-        <% else %>
-            <div class="vehicle-card">
-        <% end %>
-        <div class="vehicle-card__info-container">
-            <div class="vehicle-card__title">
-                <h3><%= vehicle.category %></h3>
+            <% if @user.vehicle_bookings.any? %>
+                <div class="vehicle-card vehicle-card--promo">
+            <% else %>
+                <div class="vehicle-card">
+            <% end %>
+                <div class="vehicle-card__info-container">
+                    <div class="vehicle-card__image-container">
+                        <img src="https://kitt.lewagon.com/placeholder/users/random" class="vehicle-card__image" />
+                    </div>
+                    <div class="vehicle-card__info">
+                        <h3 class="vehicle-card__title"><%= vehicle.category %></h3>
+                        <p class="vehicle-card__model"><%= vehicle.model %></p>
+                        <p class="vehicle-card__description"><%= vehicle.description %></p>
+                        <p class="vehicle-card__price"><%= vehicle.price %></p>
+                    </div>    
+                </div>
             </div>
-            <div class="vehicle-card__image-container">
-                <img src="https://kitt.lewagon.com/placeholder/users/random" class="vehicle-card__image" />
-            </div>
-            <div class="vehicle-card__info">
-                <p class="vehicle-card__model"><%= vehicle.model %></p>
-                <p class="vehicle-card__description"><%= vehicle.description %></p>
-                <p class="vehicle-card__price"><%= vehicle.price %></p>
-            </div>    
-        </div>
-        </div>
         <% end %>
     </div>
     <div class="vehicle-card__button">
@@ -42,14 +40,12 @@
                 <% else %>
                     <div class="vehicle-card">
                 <% end %>
-                <div class="vehicle-card__info-container">
-                    <div class="vehicle-card__title">
-                        <h3><%= vehicle.category %></h3>
-                    </div>
+                <div class="vehicle-card__info-container">      
                     <div class="vehicle-card__image-container">
                         <img src="https://kitt.lewagon.com/placeholder/users/random" class="vehicle-card__image" />
                     </div>
                     <div class="vehicle-card__info">
+                        <h3 class="vehicle-card__title"><%= vehicle.category %></h3>
                         <p class="vehicle-card__model"><%= vehicle.model %></p>
                         <p class="vehicle-card__description"><%= vehicle.description %></p>
                         <p class="vehicle-card__price"><%= vehicle.price %></p>
