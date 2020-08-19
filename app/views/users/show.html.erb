@@ -1,5 +1,5 @@
-<h1></h1>
-<h2>My vehicles</h2>
+<h1>My Profile</h1>
+<h2>My Vehicles</h2>
 <% @vehicles.each do |vehicle| %>
   <p><%= vehicle.model %></p>
   <p>image</p>
@@ -8,7 +8,7 @@
   <p>----------------------</p>
 <% end %>
 
-<%= link_to "add a new vehicle",  new_vehicle_path %>
+<%= link_to "add a new vehicle",  new_vehicle_path, class: "btn btn-ghost"%>
 <p>//////////////////////////////////////</p>
 <h2>Manage my ads</h2>
 <% @bookings.each do |booking| %>
