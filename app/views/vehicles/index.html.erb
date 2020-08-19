@@ -1,12 +1,27 @@
-<h1>All vehicles (<%= Vehicle.count %>)</h1>
+<h1><%= Vehicle.count %> Vehicles Available</h1>
 
-<% @vehicles.each do |vehicle| %>
+<!--<% @vehicles.each do |vehicle| %>
   <ul>
     <li><%= vehicle.category %> | <%= vehicle.model %></li>
     <li>From £<%= vehicle.price %> per day</li>
     <li><%= link_to'See more', vehicle_path(vehicle) %></li>
   </ul>
-<% end %>
+<% end %>-->
+<div class="container-2">
+  <% @vehicles.each do |vehicle| %>
+      <div class="card-trip">
+      <img src="https://cdn.vox-cdn.com/thumbor/aXfLAX8_HEhhl38KiG3GXp8j7zk=/0x0:6000x4000/1400x933/filters:focal(2520x1520:3480x2480):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/67031235/Yamaha_Civante_Action_VV906564.0.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= vehicle.model %></h2>
+          <p><%= vehicle.category %></p>
+        </div>
+        <h2 class="card-trip-pricing">£<%= vehicle.price %></h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      </div>
+    </div>
+  <% end %>
+</div>
 
 
 <%= link_to"Back to home page", root_path, class: "btn btn-primary" %>
