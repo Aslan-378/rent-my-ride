@@ -1,13 +1,29 @@
 <h1></h1>
-<h2>My vehicles</h2>
-<% @vehicles.each do |vehicle| %>
-  <p><%= vehicle.model %></p>
-  <p>image</p>
-  <p>description</p>
-  <p>price</p>
-  <p>----------------------</p>
-<% end %>
-
+<h2 class="">My vehicles</h2>
+<div class="vehicle-container">
+    <% @vehicles.each do |vehicle| %>
+    <% if vehicle.model === "Émonda SL 7" %>
+        <div class="vehicle-card vehicle-card--promo">
+    <% else %>
+        <div class="vehicle-card">
+    <% end %>
+    <div class="vehicle-card__info-container">
+        <div class="vehicle-card__title">
+        <h3>Vehicle</h3>
+        </div>
+        <div class="vehicle-card__image-container">
+        <p class="vehicle-card__image">image</p>
+        </div>
+        <div class="vehicle-card__info">
+            <p class="vehicle-card__model"><%= vehicle.model %></p>
+            <p class="vehicle-card__description">vehicle.description</p>
+            <p class="vehicle-card__price">price</p>
+            <p>----------------------</p>
+        </div>    
+        </div>
+    </div>
+    <% end %>
+</div>
 <%= link_to "add a new vehicle",  new_vehicle_path %>
 <p>//////////////////////////////////////</p>
 <h2>Manage my ads</h2>
@@ -17,4 +33,11 @@
   <p>--------------------------------</p>
 <% end %>
 
-
+<h2>Bookings for my vehicles</h2>
+<% if @user.vehicle_bookings.empty?%>
+  <h5>doesnt look like anyones booked ur vehhicles yet</h5>
+<% else %>
+  <% @user.vehicle_bookings.each do |f| %>
+    <p><%= f %></p>
+  <% end %>
+<% end %>
