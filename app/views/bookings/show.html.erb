@@ -1,4 +1,5 @@
-<h1><%= @booking.id %></h1>
-<%= link_to "Back to all bookings", user_booking_path %>
-<h3>Vehicle</h3>
+<h1>Details about your booking #<%= @booking.id %></h1>
+
 <h4><% @booking.vehicle.model %></h4>
+
+<%= link_to "Back to all bookings", user_bookings_path(current_user) %>
