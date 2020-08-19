@@ -1,5 +1,5 @@
-<h1>user page</h1>
-<h2>Owned vehicles</h2>
+<h1></h1>
+<h2>My vehicles</h2>
 <% @vehicles.each do |vehicle| %>
   <p><%= vehicle.model %></p>
   <p>image</p>
@@ -8,9 +8,9 @@
   <p>----------------------</p>
 <% end %>
 
-<%= link_to "create a new vehicle",  new_vehicle_path %>
+<%= link_to "add a new vehicle",  new_vehicle_path %>
 <p>//////////////////////////////////////</p>
-<h2>Current Bookings</h2>
+<h2>Manage my ads</h2>
 <% @bookings.each do |booking| %>
   <p><%= booking.vehicle.model %></p>
   <p><%= booking.vehicle.category %></p>
