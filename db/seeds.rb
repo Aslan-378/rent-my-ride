@@ -15,6 +15,8 @@ User.create(email: "fakhri@live.com", password: "123123")
 user = User.first
 User.create(email: "deci@live.com", password: "223123")
 user2 = User.last
+
+
 puts "Creating vehicles..."
 Vehicle.create!(category: "Bicycle", model: "Émonda SL 7", description: "Road bike. Brand new. Good condition.", price: 15, address: "91 Park Avenue London EC48 0DP", user: user)
 Vehicle.create!(category: "Bicycle", model: "MARLIN 7 MOUNTAIN BIKE", description: "Good mountain bike, perfect for racers. Has a very light aluminium frame.", price: 26, address: "5 Church Street London N50 2LD", user: user)
