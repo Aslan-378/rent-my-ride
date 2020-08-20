@@ -1,0 +1,109 @@
+.booking-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.booking-card {
+    $this: &;
+    display: flex;
+    align-items: center;
+    // overflow: hidden;
+    background: white;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin-bottom: 16px;
+    width: 90%;
+    justify-content: space-evenly;
+
+    &__info-container {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            left: 0;
+            top: -20px;
+            bottom: -20px;
+            background-color: red;
+        }
+    }
+
+    &__vehicle-container {
+        flex-grow: 1;
+    }
+
+    &__destroy {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    &__ribbon {
+        display: none;
+    }
+
+    &__id-title {
+        text-align: center;
+    }
+
+    &--promo {
+
+        #{$this} {
+
+            &__ribbon {
+                display: block;
+                width: 150px;
+                height: 150px;
+                overflow: hidden;
+                position: absolute;
+                top: -10px;
+                left: -10px;
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    border: 5px solid darken(red, 10%);
+                    border-top-color: transparent;
+                    border-left-color: transparent;
+                }
+    
+                &::before {
+                    top: 0;
+                    right: 0;
+                }
+                &::after {
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+
+            &__ribbon-text {
+                font-size: 16px;
+                font-weight: bold;
+                position: absolute;
+                width: 225px;
+                padding: 4px 0;
+                background-color: red;
+                box-shadow: 0 5px 10px rgba(black, .4);
+                color: white;
+                display: flex;
+                justify-content: center;
+                right: -28px;
+                top: 46px;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    
+
+}
+
