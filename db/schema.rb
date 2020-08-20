@@ -19,13 +19,18 @@ ActiveRecord::Schema.define(version: 2020_08_20_094818) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "price"
-    t.boolean "confirmed"
+    t.boolean "confirmed", default: false
     t.bigint "vehicle_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["vehicle_id"], name: "index_bookings_on_vehicle_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
