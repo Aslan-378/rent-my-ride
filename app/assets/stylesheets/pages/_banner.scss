@@ -5,6 +5,7 @@
   background-position: center;
   padding: 200px 0;
   opacity: 1;
+  height: 80vh;
 }
 
 .banner h1 {
@@ -25,4 +26,6 @@
 
 .container {
   text-align: center;
+  min-height: 80vh;
+  max-width: 100%;
 }
