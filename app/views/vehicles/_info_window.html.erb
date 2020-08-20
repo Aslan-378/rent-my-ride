@@ -1,2 +1,7 @@
+
+
 <h2><%= vehicle.model %></h2>
-<p>£<%= vehicle.price %>/day</p>
+<h6>£<%= vehicle.price %>/day</h6>
+<h6><%= vehicle.address %></h6>
+
+<%= link_to"Book now", vehicle_path(vehicle), class: "btn btn-warning" %>
