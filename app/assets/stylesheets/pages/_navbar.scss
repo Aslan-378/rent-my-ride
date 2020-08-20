@@ -1,16 +1,19 @@
 .navbar-bike {
   justify-content: space-between;
-  background: #6498B0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background-color: #6498B0;
+  color: white;
 }
 
 .navbar-bike .navbar-collapse {
-  flex-grow: 2;
+  flex-grow: 0;
 }
 
 .navbar-bike .navbar-brand img {
-  width: 80px;
-  border-radius: 50%
+  width: 100px;
+  border-radius: 55%;
+  border: 1px solid white;
 }
 
-
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    color: white;
+}
