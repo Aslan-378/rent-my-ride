@@ -1,13 +1,12 @@
 class VehiclesController < ApplicationController
   def index
-    @vehicles = Vehicle.all
-
-    @geo_vehicles = Vehicle.geocoded
-
-    @markers = @geo_vehicles.map do |vehicle|
+    @vehicles = Vehicle.geocoded
+    @markers = @vehicles.map do |vehicle|
       {
         lat: vehicle.latitude,
-        lng: vehicle.longitude
+        lng: vehicle.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { vehicle: vehicle }),
+        image_url: helpers.asset_url('bike')
       }
     end
   end
@@ -36,4 +35,5 @@ class VehiclesController < ApplicationController
   def vehicle_params
     params.require(:vehicle).permit(:category, :model, :price, :description, :address)
   end
+
 end
