@@ -1,14 +1,15 @@
-<div class="container-create">
-
-        <h1>List a new vehicle</h1>
-        <%= simple_form_for @vehicle do |f| %>
-        <%= f.input :category %>
-        <%= f.input :model %>
-        <%= f.input :description %>
-        <%= f.input :price %>
-        <%= f.input :address %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-        <%= link_to "Return to homepage", root_path, class: 'btn btn-primary' %>
-      <% end %>
-
+<div class="container">
+  <div class="create-form text-left">
+    <h1>List a new Vehicle</h1>
+    <%= simple_form_for @vehicle do |f| %>
+    <%= f.input :model %>
+    <%= f.input :category %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :address, placeholder: "40 Amhurst Road, London"%>
+    <%= f.button :submit, class: 'btn btn-primary center' %>
+    <% end %>
+  </div>
+  <%= link_to "Go back", user_path(current_user), class: "btn btn-danger my-2" %>
 </div>
+
