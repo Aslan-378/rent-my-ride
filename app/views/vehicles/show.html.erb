@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= @vehicle.model %></h1>
+  <h1><%= @vehicle.model %> | <%= @vehicle.category %></h1>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -23,15 +23,21 @@
   </a>
 </div>
 
-<p><strong>Vehicle category</strong>: <%= @vehicle.category %></p>
+<div class ="d-flex justify-content-around align-items-center mt-3">
+  <div class="vehicle-info text-left">
+    <h6><strong>Category</strong>: <%= @vehicle.category %></h6>
+    <h6><strong>Description</strong>:<%= @vehicle.description %></h6>
+    <h6><strong>From</strong> £<%= @vehicle.price %> a day</h6>
+    <h6><strong>Pick-up address:</strong> <%= @vehicle.address %></h6>
+  </div>
 
-<%#= render "bookingform", vehicle: @vehicle, booking: @booking %>
-
-<div class="booking form">
-  <%= simple_form_for [@vehicle, @booking] do |f| %>
+  <div class="booking form">
+    <%= simple_form_for [@vehicle, @booking] do |f| %>
     <%= f.input :start_date, as: :date, html5: true %>
     <%= f.input :end_date, as: :date, html5: true %>
     <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
 </div>
