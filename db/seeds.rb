@@ -24,5 +24,8 @@ puts "creating bookings....."
 Booking.create!(start_date: DateTime.new(2001,2,3,4,5,6), end_date: DateTime.new(2001,2,3,8,35,6), price: 100, vehicle: Vehicle.all.sample, user: user2)
 Booking.create!(start_date: DateTime.new(2002,2,3,4,5,6), end_date: DateTime.new(2002,2,3,8,35,6), price: 150, vehicle: Vehicle.all.sample, user: user2)
 Booking.create!(start_date: DateTime.new(2003,2,3,4,5,6), end_date: DateTime.new(2003,2,3,8,35,6), price: 120, vehicle: Vehicle.all.sample, user: user2)
-
+Booking.create!(start_date: DateTime.new(2001,2,3,4,5,8), end_date: DateTime.new(2003,2,3,8,35,6), price: 120, vehicle: Vehicle.all.sample, user: user2)
+Booking.create!(start_date: DateTime.new(2001,2,3,5,5,6), end_date: DateTime.new(2003,2,3,8,35,6), price: 120, vehicle: Vehicle.all.sample, user: user2)
+Booking.create!(start_date: DateTime.new(2001,2,2,4,2,6), end_date: DateTime.new(2003,2,3,8,35,6), price: 120, vehicle: Vehicle.all.sample, user: user2)
+Booking.create!(start_date: DateTime.new(2001,2,2,4,5,10), end_date: DateTime.new(2003,2,3,8,35,6), price: 100, vehicle: Vehicle.all.sample, user: user2)
 puts "Finished!"

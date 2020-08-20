@@ -16,11 +16,30 @@
                     </div>
                     <div class="vehicle-card__info">
                         <h3 class="vehicle-card__title"><%= vehicle.category %></h3>
-                        <p class="vehicle-card__model"><%= vehicle.model %></p>
-                        <p class="vehicle-card__description"><%= vehicle.description %></p>
-                        <p class="vehicle-card__price">£<%= vehicle.price %></p>                   
-                    </div>    
+                        <span class="vehicle-card__price">£<%= vehicle.price %></span>  
+                        <span class="vehicle-card__model"><%= vehicle.model %></span>
+                        <span class="vehicle-card__description"><%= vehicle.description %></span>                     
+                    </div>
+                    <div class="vehicle-card__review">
+                        <% starRating = 2 %>
+                        <% for i in 1..5 do %>
+                            <% if i <= starRating %>
+                                <span class="fa fa-star checked"></span>
+                            <% else %>
+                                <span class="fa fa-star"></span>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    
+                    <div class="vehicle-card__destroy">
+                        <%= link_to vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure?" }  do %> 
+                            <i class="far fa-trash-alt"></i>
+                        <% end %>
+                    </div>      
                 </div>
+                <span class="vehicle-card__ribbon">
+					<span class="vehicle-card__ribbon-text">Rented out</span>
+				</span>
             </div>
         <% end %>
     </div>
@@ -31,42 +50,54 @@
         <h2>Manage my bookings</h2>
     </div>
     <div class="booking-container">
-        <div class="booking-card">     
-        </div>
-        <div class="vehicle-container">
-            <% @vehicles.each do |vehicle| %>
-                <% if @user.vehicle_bookings.any? %>
-                    <div class="vehicle-card vehicle-card--promo">
-                <% else %>
-                    <div class="vehicle-card">
-                <% end %>
-                <div class="vehicle-card__info-container">      
-                    <div class="vehicle-card__image-container">
-                        <img src="<%= Vehicle.pics.sample %>" class="vehicle-card__image" />
+        <% Booking.sorted_bookings.each do |booking| %>
+            <% if booking.start_date == Booking.earliest_date  %>  
+                <div class="booking-card booking-card--promo">
+            <% else %>
+                <div class="booking-card">
+            <% end %>
+                <div class="booking-card__vehicle-container">
+                    <div class="vehicle-card vehicle-card--booking">
+                        <div class="vehicle-card__info-container">
+                            <div class="vehicle-card__image-container">
+                                <img src="<%= Vehicle.pics.sample %>" class="vehicle-card__image" />
+                            </div>
+                            <div class="vehicle-card__info">
+                                <h3 class="vehicle-card__title"><%= booking.vehicle.category %></h3>
+                                <span class="vehicle-card__price">£<%= booking.vehicle.price %></span>  
+                                <span class="vehicle-card__model"><%= booking.vehicle.model %></span>
+                                <span class="vehicle-card__description"><%= booking.vehicle.description %></span>
+                            </div>
+                            <div class="vehicle-card__review">
+                                <% starRating = 2 %>
+                                <% for i in 1..5 do %>
+                                    <% if i <= starRating %>
+                                        <span class="fa fa-star checked"></span>
+                                    <% else %>
+                                        <span class="fa fa-star"></span>
+                                    <% end %>
+                                <% end %>
+                            </div>         
+                        </div>
                     </div>
-                    <div class="vehicle-card__info">
-                        <h3 class="vehicle-card__title"><%= vehicle.category %></h3>
-                        <p class="vehicle-card__model"><%= vehicle.model %></p>
-                        <p class="vehicle-card__description"><%= vehicle.description %></p>
-                        <p class="vehicle-card__price">£<%= vehicle.price %></p>
-                    </div>    
                 </div>
+                <div class="booking-card__info-container">
+                    <div class="booking-card__info">
+                        <h2 class="booking-card__id-title">Booking #<%= link_to booking.id, user_booking_path(current_user, booking) %></h2>
+                        <p>Start date: <%= booking.start_date.strftime("%I:%M%p, %d/%m/%y") %></p>
+                        <p>End date: <%= booking.end_date.strftime("%I:%M%p, %d/%m/%y") %></p>
+                        <p>£<%= booking.price %></p>    
+                    </div> 
                 </div>
-            <% end %>
-        </div>
-    </div>
-    <div class="vehicle-card__header">
-        <h2>Bookings for my vehicles</h2>
-    </div>
-    <div class="vehicle-bookings">
-        <% if @user.vehicle_bookings.empty?%>
-            <div class="vehicle-bookings__description">
-                <h5>It does not look like you have any bookings currently</h5>
+                <div class="booking-card__destroy">
+                    <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }  do %> 
+                        <i class="far fa-trash-alt"></i>
+                    <% end %>
+                </div> 
+                <span class="booking-card__ribbon">
+					<span class="booking-card__ribbon-text">Coming up next</span>
+				</span>
             </div>
-        <% else %>
-            <% @user.vehicle_bookings.each do |f| %>
-                <p><%= f %></p>
-            <% end %>
         <% end %>
     </div>
 </div>
