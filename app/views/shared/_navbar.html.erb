@@ -11,12 +11,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+      <div class="flexbox">
         <li class="nav-item active">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
+        <li class="nav-item active">
+          <%= link_to "View Profile", user_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "See all bookings", user_bookings_path(current_user), class: "nav-link" %>
+        </li>
+      </div>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ilbiscione", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Home", root_path, class: "dropdown-item" %>
             <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "See all bookings", user_bookings_path(current_user), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -30,3 +39,11 @@
     </ul>
   </div>
 </div>
+
+
+
+
+
+
+
+

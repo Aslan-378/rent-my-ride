@@ -1,7 +1,6 @@
 .navbar-bike {
   justify-content: space-between;
   background-color: #6498B0;
-  color: white;
 }
 
 .navbar-bike .navbar-collapse {
@@ -16,4 +15,6 @@
 
 .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
     color: white;
+    padding-right: 20px;
 }
+
