@@ -6,14 +6,16 @@
 }
 
 .vehicle-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
     $this: &;
 
     &__title {
         font-size: 32px;
         font-weight: bold;
         margin: 0;
-        padding-left: 10px;
-        text-align: left;
     }
 
     &__info-container {
@@ -21,11 +23,12 @@
         overflow: hidden;
         background: white;
         box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        margin: 10px;
-        width: 80vh;
+        position: relative;
+        width: 600px;
         height: 250px;
+        flex-grow: 1;
     }
-
+    
     &__image-container {
         flex-shrink: 0;
         width: 200px;
@@ -39,20 +42,23 @@
     }
 
     &__price {
-        font-size: 12px;
-        opacity: .7;
+        font-size: 18px;
       }
 
     &__info {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        align-items: left;
         padding: 8px;
+        flex-grow: 1;
+        justify-content: center;
+
     }
 
     &__description {
         font-weight: normal;
         font-size: 15px;
+        text-align: left;
     }
 
     &__model {
@@ -68,13 +74,101 @@
         display: flex;
         justify-content: center;
         padding: 24px;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        padding: 0;
     }
+
+    &__destroy {
+         display: flex;
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        font-size: 16px;
+    }
+
+    &__review {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        height: 40px;
+        width: 100px;
+
+
+        .checked {
+            color: red;
+        }
+
+
+    }
+
+    &__ribbon {
+        display: none;
+    }
+
 
     &--promo {
 
-        #{$this}__info-container {
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
-        }
+        #{$this} {
 
+            &__ribbon {
+                display: block;
+                width: 150px;
+                height: 150px;
+                overflow: hidden;
+                position: absolute;
+                top: -10px;
+                left: -10px;
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    border: 5px solid darken(red, 10%);
+                    border-top-color: transparent;
+                    border-left-color: transparent;
+                }
+    
+                &::before {
+                    top: 0;
+                    right: 0;
+                }
+                &::after {
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+
+            &__ribbon-text {
+                font-size: 20px;
+                font-weight: bold;
+                position: absolute;
+                width: 225px;
+                padding: 4px 0;
+                background-color: red;
+                box-shadow: 0 5px 10px rgba(black, .4);
+                color: white;
+                display: flex;
+                justify-content: center;
+                right: -25px;
+                top: 43px;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    &--booking {
+        margin-bottom: 0;
+        
+        #{$this} {
+
+            &__info-container {
+                box-shadow: none;
+            }
+        }
     }
 }
