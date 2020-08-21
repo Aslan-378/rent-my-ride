@@ -34,7 +34,8 @@ Vehicle.create!(category: "Bicycle", model: "Alan Bike", description: "its prett
 Vehicle.create!(category: "Electric Scooter", model: "Lightning McQueen", description: "Owned for 10 years, never had any problems.", price: 40, address: "china", user: user2)
 Vehicle.create!(category: "Motorbike", model: "Harley", description: "Owned for 3 days, so pretty much brand new. its the best of the best", price: 40, address: "milan", user: user2)
 Vehicle.create!(category: "Skateboard", model: "wooden one", description: "Had it for an hour and it was the worst ride of my life.", price: 40, address: "new delhi", user: user2)
-
+vehicle = Vehicle.first
+vehicle2 = Vehicle.last
 puts "creating bookings....."
 Booking.create!(start_date: DateTime.new(2001,2,3,4,5,6), end_date: DateTime.new(2001,2,3,8,35,6), price: 100, vehicle: Vehicle.all.sample, user: user2)
 # Booking.create!(start_date: DateTime.new(2002,2,3,4,5,6), end_date: DateTime.new(2002,2,3,8,35,6), price: 150, vehicle: Vehicle.all.sample, user: user2)
