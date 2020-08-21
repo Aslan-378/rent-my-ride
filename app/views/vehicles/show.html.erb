@@ -22,26 +22,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<div class="container1">
-    <h2>
-    <%= pluralize @vehicle.reviews.size, "review" %>
-    </h2>
-  <div id="reviews">
-    <% if @vehicle.reviews.blank? %>
-      Be the first to leave a review for <%= @vehicle.model %>!
-    <% else %>
-      <% @vehicle.reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="review form">
-  <%= simple_form_for [@vehicle, @review] do |f| %>
-    <%= f.input :content %>
-    <%= f.button :submit, class: "btn-primary" %>
-  <% end %>
-</div>
 
 <div class ="d-flex justify-content-around align-items-center mt-3">
   <div class="vehicle-info text-left">

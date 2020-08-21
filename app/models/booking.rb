@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :vehicle
   belongs_to :user
   has_many :reviews
-  validates :start_date, :end_date, :price, presence: true
+  validates :start_date, :end_date, presence: true
   def self.earliest_date
     start_at_values = Booking.pluck(:start_date)
     earliest_date = start_at_values.min
