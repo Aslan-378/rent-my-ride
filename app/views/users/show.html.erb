@@ -20,9 +20,9 @@
                     </div>
                     <div class="vehicle-card__info">
                         <h3 class="vehicle-card__title"><%= vehicle.category %></h3>
-                        <span class="vehicle-card__price">£<%= vehicle.price %></span>  
+                        <span class="vehicle-card__price">£<%= vehicle.price %></span>
                         <span class="vehicle-card__model"><%= vehicle.model %></span>
-                        <span class="vehicle-card__description"><%= vehicle.description %></span>                     
+                        <span class="vehicle-card__description"><%= vehicle.description %></span>
                     </div>
                     <div class="vehicle-card__review">
                         <% if vehicle.average_rating == nil %>
@@ -37,12 +37,12 @@
                             <% end %>
                         <% end %>
                     </div>
-                    
+
                     <div class="vehicle-card__destroy">
-                        <%= link_to vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure?" }  do %> 
+                        <%= link_to vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure?" }  do %>
                             <i class="far fa-trash-alt"></i>
                         <% end %>
-                    </div>    
+                    </div>
                 </div>
                 <span class="vehicle-card__ribbon">
 					<span class="vehicle-card__ribbon-text">Rented out</span>
@@ -53,9 +53,9 @@
     <div class="booking-container tabcontent" id="my-bookings">
         <div class="booking-card__header">
             <h2>Manage my bookings</h2>
-        </div>  
+        </div>
         <% @user.bookings.sorted_bookings.each do |b| %>
-            <% if b.start_date == Booking.earliest_date  %>  
+            <% if b.start_date == Booking.earliest_date  %>
                 <div class="booking-card booking-card--promo">
             <% else %>
                 <div class="booking-card">
@@ -68,7 +68,7 @@
                             </div>
                             <div class="vehicle-card__info">
                                 <h3 class="vehicle-card__title"><%= b.vehicle.category %></h3>
-                                <span class="vehicle-card__price">£<%= b.vehicle.price %></span>  
+                                <span class="vehicle-card__price">£<%= b.vehicle.price %></span>
                                 <span class="vehicle-card__model"><%= b.vehicle.model %></span>
                                 <span class="vehicle-card__description"><%= b.vehicle.description %></span>
                             </div>
@@ -84,7 +84,7 @@
                                         <% end %>
                                     <% end %>
                                 <% end %>
-                            </div>         
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,20 +99,20 @@
                             <% else %>
                                 <p>£<%= b.price %></p>
                             <% end%>
-                        </div> 
+                        </div>
                     </div>
                     <div class="booking-card__destroy">
-                        <%= link_to booking_path(b), method: :delete, data: { confirm: "Are you sure?" }  do %> 
+                        <%= link_to booking_path(b), method: :delete, data: { confirm: "Are you sure?" }  do %>
                             <i class="far fa-trash-alt"></i>
                         <% end %>
-                    </div> 
+                    </div>
                     <div class="booking-card__review-card">
                         <%= link_to vehicle_path(b.vehicle_id) do %>
                             <i class="fas fa-comments"></i>
                             <span class="booking-card__review-comment">Review</span>
                         <% end %>
                     </div>
-                </div> 
+                </div>
                 <span class="booking-card__ribbon">
 					<span class="booking-card__ribbon-text">Coming up next</span>
 				</span>
