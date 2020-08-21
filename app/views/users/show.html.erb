@@ -16,7 +16,9 @@
             <% end %>
                 <div class="vehicle-card__info-container">
                     <div class="vehicle-card__image-container">
-                        <img src="<%= Vehicle.pics.sample %>" class="vehicle-card__image" />
+                    <%= link_to vehicle_path(vehicle), class: "" do %>
+                        <img src="" class="vehicle-card__image" />
+                    <% end %>      
                     </div>
                     <div class="vehicle-card__info">
                         <h3 class="vehicle-card__title"><%= vehicle.category %></h3>
