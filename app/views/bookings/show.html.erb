@@ -1,6 +1,27 @@
 <h1>Details about your booking #<%= @booking.id %></h1>
 
-<h4><% @booking.vehicle.model %></h4>
+<h4><%= @booking.vehicle.model %></h4>
+  <div id="reviews">
+    <% if @vehicle.reviews.blank? %>
+      Be the first to leave a review for <%= @vehicle.model %>!
+    <% else %>
+      <% @vehicle.reviews.each do |review| %>
+        <p><%= review.content %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="review-form">
+    <h1 class="review-form__title">Review this vehicle</h1>
+      <%= simple_form_for [@booking.vehicle, @review], :html=> { class: "review-form__form" } do |f| %>
+          <%= f.input :name, :wrapper_html=> { class: "review-form__input-container" }, :input_html=> { class: "review-form__input" }, :label_html=> { class: "review-form__label"}%>
+          <%= f.input :content, :wrapper_html=> { class: "review-form__input-container" }, :input_html=> { class: "review-form__input" }, :label_html=> { class: "review-form__label"}%>
+          <%= f.input :rating, :wrapper_html=> { class: "review-form__input-container" }, :input_html=> { class: "review-form__input" }, :label_html=> { class: "review-form__label"}%>
+          <%= f.button :submit, class: "review-form__button vehicle-form__button--submit" %>
+      <% end %>
+    </div>
+  <div class="dashboard">
+    <%= link_to "Dashboard", user_path(current_user), class: "review-form__button" %>
+  </div>
 
 <%= link_to "Back to all bookings", user_bookings_path(current_user), class: "btn btn-primary" %>
 
