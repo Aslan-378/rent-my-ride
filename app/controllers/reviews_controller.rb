@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
 
+    def new
+        @review = Review.new
+    end
+
     def create
         @vehicle = Vehicle.find(params[:vehicle_id])
         @review = Review.new(review_params)

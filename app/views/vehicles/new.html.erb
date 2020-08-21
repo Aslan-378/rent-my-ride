@@ -1,17 +1,17 @@
 <div class="page-container"> 
   <div class="vehicle-form">
-  <h1 class="vehcile-form__title">Create a new Vehicle</h1>
-    <%= simple_form_for @vehicle, :html=> { class: "vehicle-form__form" } do |f| %>
-        <%= f.input :category, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
-        <%= f.input :model, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
-        <%= f.input :description, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
-        <%= f.input :price, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
-        <%= f.input :address, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
-        <%= f.input :photos, as: :file, :wrapper_html=> { class: "vehicle-form__input-container" }, input_html: { multiple: true, class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"} %>
-        <%= f.button :submit, class: "vehicle-form__button vehicle-form__button--submit" %>
-    <% end %>
-    
-  </div>
+    <h1 class="vehcile-form__title">Create a new Vehicle</h1>
+      <%= simple_form_for @vehicle, :html=> { class: "vehicle-form__form" } do |f| %>
+          <%= f.input :category, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
+          <%= f.input :model, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
+          <%= f.input :description, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
+          <%= f.input :price, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
+          <%= f.input :address, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
+          <%= f.input :photos, as: :file, :wrapper_html=> { class: "vehicle-form__input-container" }, input_html: { multiple: true, class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"} %>
+          <%= f.button :submit, class: "vehicle-form__button vehicle-form__button--submit" %>
+      <% end %>
+      
+    </div>
   <div class="dashboard">
     <%= link_to "Dashboard", user_path(current_user), class: "vehicle-form__button" %>
   </div>
