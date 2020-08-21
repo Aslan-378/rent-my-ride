@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:destroy]
   resources :vehicles do
+    resources :reviews, only: [:create]
     resources :bookings, only: [:create]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

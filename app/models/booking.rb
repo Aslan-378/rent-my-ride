@@ -11,4 +11,8 @@ class Booking < ApplicationRecord
     bookings = Booking.all
     sorted_objects = bookings.sort_by{|b| b.start_date}
   end
+
+  def self.sort_bookings
+    sorted_user_bookings = @user.bookings.sort_by{|b| b.start_date}
+  end
 end

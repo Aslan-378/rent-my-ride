@@ -1,3 +1,7 @@
+.fas {
+    color:white;
+}
+
 .booking-container {
     display: flex;
     justify-content: center;
@@ -13,16 +17,12 @@
     background: white;
     position: relative;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    margin-bottom: 16px;
-    width: 90%;
-    justify-content: space-evenly;
+    margin: 0 auto 16px;
+    // width: 90%;
+    justify-content: center;
 
-    &__info-container {
-        width: 40%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+    &__container {
+        padding: 20px;
         position: relative;
 
         &::before {
@@ -30,10 +30,19 @@
             position: absolute;
             width: 1px;
             left: 0;
-            top: -20px;
-            bottom: -20px;
+            top: -5px;
+            bottom: -5px;
             background-color: red;
         }
+    }
+
+    &__info-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
     }
 
     &__vehicle-container {
@@ -42,8 +51,14 @@
 
     &__destroy {
         position: absolute;
-        bottom: 16px;
+        bottom: -16px;
         right: 16px;
+    }
+
+    &__review-card {
+        position: absolute;
+        bottom: -16px;
+        left: 10px;
     }
 
     &__ribbon {
@@ -52,6 +67,36 @@
 
     &__id-title {
         text-align: center;
+    }
+
+    &__title {
+        font-size: 32px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__header {
+        display: flex;
+        min-height: 50px;
+        margin: 16px auto 16px;
+        // width: 90%;
+    }
+
+    &__review-card {
+        background-color: rgb(22, 128, 251);
+        padding: 0px 10px;
+        border-radius: 4px 4px 4px 0px;
+
+        &:hover {
+            background-color: darken(#1680fb, 10%);
+            color: #fff;
+        }
+    }
+    
+    &__review-comment {
+        color: white;
+        text-decoration: none!important;
+        display: inline-block;
     }
 
     &--promo {
