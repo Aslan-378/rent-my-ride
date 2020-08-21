@@ -7,7 +7,7 @@ def index
           lat: vehicle.latitude,
           lng: vehicle.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { vehicle: vehicle }),
-          image_url: helpers.asset_url('bike')
+          image_url: helpers.asset_url('bike.png')
         }
       end
     else
@@ -19,7 +19,7 @@ def index
           lat: vehicle.latitude,
           lng: vehicle.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { vehicle: vehicle }),
-          image_url: helpers.asset_url('bike')
+          image_url: helpers.asset_url('bike.png')
         }
       end
     end
