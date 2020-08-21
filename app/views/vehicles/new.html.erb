@@ -1,4 +1,4 @@
-<div class="page-container"> 
+<div class="page-container">
   <h1>Create a new Vehicle</h1>
   <div class="form-container">
     <%= simple_form_for @vehicle do |f| %>
@@ -8,9 +8,10 @@
         <%= f.input :description, class="form__description" %>
         <%= f.input :price, class="form__price" %>
         <%= f.input :address, class="form__address" %>
+        <%= f.input :photo, as: :file %>
         <%= f.button :submit, class="btn btn-primary" %>
       </div>
     <% end %>
     <%= link_to "Go back", user_path(current_user) %>
   </div>
-</div> 
+</div>
