@@ -7,9 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Cleaning database..."
+
 Booking.destroy_all
 Vehicle.destroy_all
 User.destroy_all
+Review.destroy_all
 
 User.create(email: "fakhri@live.com", password: "123123")
 user = User.first
@@ -43,4 +45,8 @@ Booking.create!(start_date: DateTime.new(2001,2,3,4,5,6), end_date: DateTime.new
 # Booking.create!(start_date: DateTime.new(2001,2,2,4,5,10), end_date: DateTime.new(2003,2,3,8,35,6), price: 100, vehicle: Vehicle.all.sample, user: user2)
 # Booking.create!(start_date: DateTime.new(2007,2,2,4,2,6), end_date: DateTime.new(2003,2,3,8,35,6), price: 120, vehicle: Vehicle.all.sample, user: user)
 # Booking.create!(start_date: DateTime.new(2007,2,2,4,5,10), end_date: DateTime.new(2003,2,3,8,35,6), price: 100, vehicle: Vehicle.all.sample, user: user)
+puts "creating reviews....."
+Review.create!(name: "bob", content: "it is pretty groovy", rating: 4, vehicle: vehicle)
+Review.create!(name: "shiela", content: "fast and furious", rating: 4, vehicle: vehicle2)
+
 puts "Finished!"

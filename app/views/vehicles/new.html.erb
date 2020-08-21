@@ -1,16 +1,17 @@
-<div class="page-container"> 
+<div class="page-container">
   <h1>Create a new Vehicle</h1>
   <div class="form-container">
     <%= simple_form_for @vehicle do |f| %>
       <div class="form">
-        <%= f.input :category, class="form__category"%>
+        <%= f.input :category, class: "form__category"%>
         <%= f.input :model, class="form__model" %>
         <%= f.input :description, class="form__description" %>
         <%= f.input :price, class="form__price" %>
         <%= f.input :address, class="form__address" %>
+        <%= f.input :photo, as: :file %>
         <%= f.button :submit, class="btn btn-primary" %>
       </div>
     <% end %>
     <%= link_to "Go back", user_path(current_user) %>
   </div>
-</div> 
+</div>
