@@ -1,0 +1,7 @@
+<div class="review form">
+  <%= simple_form_for [review, vehicle], path: reviews_bookings_path do |f| %>
+    <%= f.input :comments %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
