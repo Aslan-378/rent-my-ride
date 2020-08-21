@@ -1,5 +1,18 @@
 <h1>Details about your booking #<%= @booking.id %></h1>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <% if @vehicle.photos.attached?%>
+      <div class="carousel-item active">
+        <%= cl_image_tag @vehicle.photos.first.key, height: 500, width: 600, crop: :fill %>
+      </div>
+      <% @vehicle.photos.drop(1).each do |photo| %>
+        <div class="carousel-item">
+            <%= cl_image_tag photo.key, height: 500, width: 600, crop: :fill %>
+        </div>
+      <% end %>
+    <% end %>
 
+  </div>
 <h4><%= @booking.vehicle.model %></h4>
   <div id="reviews">
     <% if @vehicle.reviews.blank? %>
