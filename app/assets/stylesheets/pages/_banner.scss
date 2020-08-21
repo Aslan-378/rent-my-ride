@@ -28,7 +28,7 @@
   text-align: center;
   min-height: 30vh;
   max-width: 100%;
-  padding: 20px 300px;
+  padding: 20px;
 }
 
 .carousel-item {
@@ -40,4 +40,28 @@
   -o-background-size: cover;
   background-size: cover;
   background-position: center bottom;
+}
+
+.carousel-item-show {
+  max-height: 400px;
+  width: 500px;
+}
+
+.carousel-inner-show {
+  width: 50%;
+
+}
+
+.carousel-show {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-control-show-prev {
+  left: 25%
+}
+
+.carousel-control-show-next {
+  right: 25%
 }

@@ -49,6 +49,11 @@ ActiveRecord::Schema.define(version: 2020_08_21_103519) do
     t.index ["vehicle_id"], name: "index_bookings_on_vehicle_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
