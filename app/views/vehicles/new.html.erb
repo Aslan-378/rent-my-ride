@@ -1,13 +1,16 @@
 <div class="page-container">
   <h1>Create a new Vehicle</h1>
-  <div class="vehicle-form-container">
-    <%= simple_form_for @vehicle, :html=> { class: "vehicle-form" } do |f| %>
-      <div class="vehicle-form">
-        <%= f.input :category, :input_html=> { class: "vehicle-form__category" }%>
-        <%= f.input :model, :input_html=> { class: "vehicle-form__model"} %>
-        <%= f.input :description, :input_html=> { class: "vehicle-form__description"} %>
-        <%= f.input :price, :input_html=> { class: "vehicle-form__price"} %>
-        <%= f.input :address, :input_html=> { class: "vehicle-form__address"} %>
+
+  <div class="form-container">
+    <%= simple_form_for @vehicle do |f| %>
+      <div class="form">
+        <%= f.input :category, class: "form__category"%>
+        <%= f.input :model, class: "form__model" %>
+        <%= f.input :description, class: "form__description" %>
+        <%= f.input :price, class: "form__price" %>
+        <%= f.input :address, class: "form__address" %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+
         <%= f.button :submit, class: "btn btn-primary" %>
       </div>
     <% end %>

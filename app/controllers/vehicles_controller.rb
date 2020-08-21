@@ -54,7 +54,7 @@ def index
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:category, :model, :price, :description, :address)
+    params.require(:vehicle).permit(:category, :model, :price, :description, :address, photos: [])
   end
 
 end
