@@ -1,11 +1,36 @@
-<div class="container u-no-padding">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1592222491987-aebdb920e1a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
-   <h1><strong>Rent My Ride</strong></h1>
-    <p>Find your dream ride wherever you are...<br>
-    Join a community of like-minded individuals...<br>
-    Never stop exploring...</p>
-    <%= link_to 'Find a vehicle', 'vehicles', class: "btn btn-primary" %>
-    <%= link_to 'List a vehicle', new_vehicle_path, class: "btn btn-primary" %>
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542245796-946699811998?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">Find your dream ride wherever you are.</h2>
+          <p class="lead">Let us help you find the best vehicle.</p>
+          <%= link_to 'Find a vehicle', 'vehicles', class: "btn btn-outline-light" %>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1583409461426-20d5d4f7a66e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">Join a community of like-minded individuals.</h2>
+          <p class="lead">Want to make some money from your vehicle?. We got you.</p>
+          <%= link_to 'List a vehicle', new_vehicle_path, class: "btn btn-outline-light" %>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
     </div>
-</div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
+</header>
 
