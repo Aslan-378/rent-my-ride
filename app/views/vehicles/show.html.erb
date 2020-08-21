@@ -1,14 +1,14 @@
 <div class="container">
-  <h1><%= @vehicle.model %> | <%= @vehicle.category %> | <%= @vehicle.address.capitalize %></h1>
+  <h1><%= @vehicle.model %></h1>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <% if @vehicle.photos.attached?%>
       <div class="carousel-item active">
-        <%= cl_image_tag @vehicle.photos.first.key, height: 500, width: 600, crop: :fill %>
+        <%= cl_image_tag @vehicle.photos.first.key, height: 700, width: 800, crop: :fill %>
       </div>
       <% @vehicle.photos.drop(1).each do |photo| %>
         <div class="carousel-item">
-            <%= cl_image_tag photo.key, height: 500, width: 600, crop: :fill %>
+            <%= cl_image_tag photo.key, height: 700, width: 800, crop: :fill %>
         </div>
       <% end %>
     <% end %>
@@ -22,11 +22,11 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<div class="container1">
+
+  <div id="reviews m-3">
     <h2>
     <%= pluralize @vehicle.reviews.size, "review" %>
     </h2>
-  <div id="reviews">
     <% if @vehicle.reviews.blank? %>
       Be the first to leave a review for <%= @vehicle.model %>!
     <% else %>
@@ -42,7 +42,7 @@
     <h6><strong>From</strong> £<%= @vehicle.price %> a day</h6>
     <h6><strong>Pick-up address:</strong> <%= @vehicle.address.capitalize %></h6>
   </div>
-  <div class="booking form">
+  <div class="booking form mb-2">
     <%= simple_form_for [@vehicle, @booking] do |f| %>
     <%= f.input :start_date, as: :date, html5: true %>
     <%= f.input :end_date, as: :date, html5: true %>
