@@ -101,7 +101,7 @@
                         <% end %>
                     </div> 
                     <div class="booking-card__review-card">
-                        <%= link_to new_vehicle_review_path(current_user) do %>
+                        <%= link_to vehicle_path(b.vehicle_id) do %>
                             <i class="fas fa-comments"></i>
                             <span class="booking-card__review-comment">Review</span>
                         <% end %>
