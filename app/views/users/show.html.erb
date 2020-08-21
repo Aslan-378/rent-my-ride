@@ -1,11 +1,15 @@
-<h1>User Page</h1>
 <div class="user-container">
-    <div class="vehicle-card__header">
-        <h2 class="">My vehicles</h2>
+    <div class="user-tab">
+        <button class="user-tab__links" data-tablinks="my-vehicles" id="defaultOpen">My Vehicles</button>
+        <button class="user-tab__links" data-tablinks="my-bookings" >My Bookings</button>
     </div>
-    <div class="vehicle-container">
-        <% @vehicles.each do |vehicle| %>
-            <% if vehicle.model === "Émonda SL 7" %>
+    <div class="vehicle-container tabcontent" id="my-vehicles">
+        <div class="vehicle-card__header">
+            <h2 class="">My vehicles</h2>
+            <%= link_to "Create a new vehicle",  new_vehicle_path, class: "vehicle-card__button"%>
+        </div>
+        <% @user.vehicles.each do |vehicle| %>
+            <% if vehicle.id === vehicle.bookings.pluck(:vehicle_id).first.to_i %>
                 <div class="vehicle-card vehicle-card--promo">
             <% else %>
                 <div class="vehicle-card">
@@ -35,7 +39,7 @@
                         <%= link_to vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure?" }  do %> 
                             <i class="far fa-trash-alt"></i>
                         <% end %>
-                    </div>      
+                    </div>    
                 </div>
                 <span class="vehicle-card__ribbon">
 					<span class="vehicle-card__ribbon-text">Rented out</span>
@@ -43,15 +47,12 @@
             </div>
         <% end %>
     </div>
-    <div class="vehicle-card__button">
-        <%= link_to "add a new vehicle",  new_vehicle_path, class: "btn btn-primary"%>
-    </div>
-    <div class="vehicle-card__header">
-        <h2>Manage my bookings</h2>
-    </div>
-    <div class="booking-container">
-        <% Booking.sorted_bookings.each do |booking| %>
-            <% if booking.start_date == Booking.earliest_date  %>  
+    <div class="booking-container tabcontent" id="my-bookings">
+        <div class="booking-card__header">
+            <h2>Manage my bookings</h2>
+        </div>  
+        <% @user.bookings.sorted_bookings.each do |b| %>
+            <% if b.start_date == Booking.earliest_date  %>  
                 <div class="booking-card booking-card--promo">
             <% else %>
                 <div class="booking-card">
@@ -63,10 +64,10 @@
                                 <img src="<%= Vehicle.pics.sample %>" class="vehicle-card__image" />
                             </div>
                             <div class="vehicle-card__info">
-                                <h3 class="vehicle-card__title"><%= booking.vehicle.category %></h3>
-                                <span class="vehicle-card__price">£<%= booking.vehicle.price %></span>  
-                                <span class="vehicle-card__model"><%= booking.vehicle.model %></span>
-                                <span class="vehicle-card__description"><%= booking.vehicle.description %></span>
+                                <h3 class="vehicle-card__title"><%= b.vehicle.category %></h3>
+                                <span class="vehicle-card__price">£<%= b.vehicle.price %></span>  
+                                <span class="vehicle-card__model"><%= b.vehicle.model %></span>
+                                <span class="vehicle-card__description"><%= b.vehicle.description %></span>
                             </div>
                             <div class="vehicle-card__review">
                                 <% starRating = 2 %>
@@ -81,18 +82,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="booking-card__info-container">
-                    <div class="booking-card__info">
-                        <h2 class="booking-card__id-title">Booking #<%= link_to booking.id, user_booking_path(current_user, booking) %></h2>
-                        <p>Start date: <%= booking.start_date.strftime("%I:%M%p, %d/%m/%y") %></p>
-                        <p>End date: <%= booking.end_date.strftime("%I:%M%p, %d/%m/%y") %></p>
-                        <p>£<%= booking.price %></p>    
+                <div class="booking-card__container">
+                    <div class="booking-card__info-container">
+                        <div class="booking-card__info">
+                            <h2 class="booking-card__id-title">Booking #<%= link_to b.id, user_booking_path(current_user, b) %></h2>
+                            <p>Start date: <%= b.start_date.strftime("%I:%M%p, %d/%m/%y") %></p>
+                            <p>End date: <%= b.end_date.strftime("%I:%M%p, %d/%m/%y") %></p>
+                            <% if b.price == nil %>
+                                <p>£<%= b.vehicle.price %></p>
+                            <% else %>
+                                <p>£<%= b.price %></p>
+                            <% end%>
+                        </div> 
+                    </div>
+                    <div class="booking-card__destroy">
+                        <%= link_to booking_path(b), method: :delete, data: { confirm: "Are you sure?" }  do %> 
+                            <i class="far fa-trash-alt"></i>
+                        <% end %>
                     </div> 
-                </div>
-                <div class="booking-card__destroy">
-                    <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }  do %> 
-                        <i class="far fa-trash-alt"></i>
-                    <% end %>
+                    <div class="booking-card__review-card">
+                        <%= link_to new_vehicle_review_path(current_user) do %>
+                            <i class="fas fa-comments"></i>
+                            <span class="booking-card__review-comment">Review</span>
+                        <% end %>
+                    </div>
                 </div> 
                 <span class="booking-card__ribbon">
 					<span class="booking-card__ribbon-text">Coming up next</span>

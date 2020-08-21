@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div class="container">
   <div class="create-form text-left">
     <h1>List a new Vehicle</h1>
@@ -13,3 +14,21 @@
   <%= link_to "Go back", user_path(current_user), class: "btn btn-danger my-2" %>
 </div>
 
+=======
+<div class="page-container"> 
+  <h1>Create a new Vehicle</h1>
+  <div class="form-container">
+    <%= simple_form_for @vehicle do |f| %>
+      <div class="form">
+        <%= f.input :category, class="form__category"%>
+        <%= f.input :model, class="form__model" %>
+        <%= f.input :description, class="form__description" %>
+        <%= f.input :price, class="form__price" %>
+        <%= f.input :address, class="form__address" %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+    <%= link_to "Go back", user_path(current_user) %>
+  </div>
+ </div> 
+>>>>>>> Stashed changes

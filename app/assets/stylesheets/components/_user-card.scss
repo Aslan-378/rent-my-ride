@@ -1,0 +1,46 @@
+.user-container {
+    padding: 0 32px;
+}
+
+.user-tab {
+    $this: &;
+    // overflow: hidden;
+    border-bottom: 1px solid #1680fb;
+    // background-color: #f1f1f1;
+    margin: 16px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // width: 90%;
+
+  /* Style the buttons that are used to open the tab content */
+    &__links {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 8px 16px 8px 16px;
+        transition: .3s;
+        // border-radius: 8px 8px 0px 0px;
+        margin: 0px;
+
+        /* Create an active/current tablink class */
+        &.active {
+            background-color: #1680fb;
+            color: #fff;
+        }
+
+        &:hover {
+            background-color: darken(#1680fb, 10%);
+            color: #fff;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+  }

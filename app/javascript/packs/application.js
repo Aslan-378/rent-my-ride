@@ -9,9 +9,20 @@ require("@rails/activestorage").start()
 require("channels")
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { openUserTabs } from "../components/user-tabs";
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  const userTab = document.querySelectorAll(".user-tab__links");
+  userTab.forEach((tab) => {
+    tab.addEventListener( 'click' , (event) => {
+       openUserTabs(event, tab.dataset.tablinks)
+    });
+  }); 
+  const defaultClick = document.getElementById("defaultOpen");
+  if (defaultClick) {
+    defaultClick.click();
+  }
 })
 
 
@@ -27,7 +38,6 @@ document.addEventListener('turbolinks:load', () => {
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
-
 // External imports
 import "bootstrap";
 
