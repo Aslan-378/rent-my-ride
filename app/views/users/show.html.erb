@@ -25,12 +25,15 @@
                         <span class="vehicle-card__description"><%= vehicle.description %></span>                     
                     </div>
                     <div class="vehicle-card__review">
-                        <% starRating = 2 %>
-                        <% for i in 1..5 do %>
-                            <% if i <= starRating %>
-                                <span class="fa fa-star checked"></span>
-                            <% else %>
-                                <span class="fa fa-star"></span>
+                        <% if vehicle.average_rating == nil %>
+                            <p>No reviews</p>
+                        <% else %>
+                            <% for i in 1..5 do %>
+                                <% if i <= vehicle.average_rating  %>
+                                    <span class="fa fa-star checked"></span>
+                                <% else %>
+                                    <span class="fa fa-star"></span>
+                                <% end %>
                             <% end %>
                         <% end %>
                     </div>
@@ -70,12 +73,15 @@
                                 <span class="vehicle-card__description"><%= b.vehicle.description %></span>
                             </div>
                             <div class="vehicle-card__review">
-                                <% starRating = 2 %>
-                                <% for i in 1..5 do %>
-                                    <% if i <= starRating %>
-                                        <span class="fa fa-star checked"></span>
-                                    <% else %>
-                                        <span class="fa fa-star"></span>
+                                <% if b.vehicle.average_rating == nil %>
+                                    <p>No Reviews</p>
+                                <% else %>
+                                    <% for i in 1..5 do %>
+                                        <% if i <= b.vehicle.average_rating  %>
+                                            <span class="fa fa-star checked"></span>
+                                        <% else %>
+                                            <span class="fa fa-star"></span>
+                                        <% end %>
                                     <% end %>
                                 <% end %>
                             </div>         
