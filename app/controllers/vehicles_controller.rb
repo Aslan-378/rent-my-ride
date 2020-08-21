@@ -1,13 +1,27 @@
 class VehiclesController < ApplicationController
-  def index
-    @vehicles = Vehicle.geocoded
-    @markers = @vehicles.map do |vehicle|
-      {
-        lat: vehicle.latitude,
-        lng: vehicle.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { vehicle: vehicle }),
-        image_url: helpers.asset_url('bike')
-      }
+def index
+    if params[:query].present?
+      @vehicles = Vehicle.near(params[:query], 20)
+      @markers = @vehicles.map do |vehicle|
+        {
+          lat: vehicle.latitude,
+          lng: vehicle.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { vehicle: vehicle }),
+          image_url: helpers.asset_url('bike')
+        }
+      end
+    else
+      @vehicles = Vehicle.all
+
+      @vehicles = Vehicle.geocoded
+      @markers = @vehicles.map do |vehicle|
+        {
+          lat: vehicle.latitude,
+          lng: vehicle.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { vehicle: vehicle }),
+          image_url: helpers.asset_url('bike')
+        }
+      end
     end
   end
 
@@ -19,7 +33,7 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
     if @vehicle.save
-      redirect_to vehicle_path(@vehicle)
+      redirect_to user_path(current_user)
     else
       render :new
     end

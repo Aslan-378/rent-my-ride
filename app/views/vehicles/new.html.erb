@@ -1,5 +1,6 @@
 <div class="page-container">
   <h1>Create a new Vehicle</h1>
+
   <div class="form-container">
     <%= simple_form_for @vehicle do |f| %>
       <div class="form">
@@ -9,6 +10,7 @@
         <%= f.input :price, class: "form__price" %>
         <%= f.input :address, class: "form__address" %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+
         <%= f.button :submit, class: "btn btn-primary" %>
       </div>
     <% end %>
