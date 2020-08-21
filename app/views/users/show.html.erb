@@ -16,7 +16,11 @@
             <% end %>
                 <div class="vehicle-card__info-container">
                     <div class="vehicle-card__image-container">
-                        <img src="<%= Vehicle.pics.sample %>" class="vehicle-card__image" />
+                        <%= link_to vehicle_path(vehicle) do %>
+                            <% if vehicle.photos.attached? %>
+                                <%= cl_image_tag vehicle.photos.first.key, class: "vehicle-card__image" %>
+                            <% end %>
+                        <% end %>      
                     </div>
                     <div class="vehicle-card__info">
                         <h3 class="vehicle-card__title"><%= vehicle.category %></h3>
@@ -64,7 +68,9 @@
                     <div class="vehicle-card vehicle-card--booking">
                         <div class="vehicle-card__info-container">
                             <div class="vehicle-card__image-container">
-                                <img src="<%= Vehicle.pics.sample %>" class="vehicle-card__image" />
+                                <% if b.vehicle.photos.attached? %>
+                                    <%= cl_image_tag b.vehicle.photos.first.key, class: "vehicle-card__image" %>
+                                 <% end %>
                             </div>
                             <div class="vehicle-card__info">
                                 <h3 class="vehicle-card__title"><%= b.vehicle.category %></h3>

@@ -1,6 +1,5 @@
 <div class="container">
   <h1><%= @vehicle.model %> | <%= @vehicle.category %> | <%= @vehicle.address.capitalize %></h1>
-
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <% if @vehicle.photos.attached?%>
@@ -13,7 +12,6 @@
         </div>
       <% end %>
     <% end %>
-
   </div>
   <a class="carousel-control-prev carousel-control-show-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -28,7 +26,6 @@
     <h2>
     <%= pluralize @vehicle.reviews.size, "review" %>
     </h2>
-
   <div id="reviews">
     <% if @vehicle.reviews.blank? %>
       Be the first to leave a review for <%= @vehicle.model %>!
@@ -53,7 +50,6 @@
     <h6><strong>From</strong> £<%= @vehicle.price %> a day</h6>
     <h6><strong>Pick-up address:</strong> <%= @vehicle.address.capitalize %></h6>
   </div>
-
   <div class="booking form">
     <%= simple_form_for [@vehicle, @booking] do |f| %>
     <%= f.input :start_date, as: :date, html5: true %>
@@ -62,7 +58,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
