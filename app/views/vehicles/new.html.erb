@@ -7,6 +7,7 @@
         <%= f.input :description, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
         <%= f.input :price, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
         <%= f.input :address, :wrapper_html=> { class: "vehicle-form__input-container" }, :input_html=> { class: "vehicle-form__input" }, :label_html=> { class: "vehicle-form__label"}%>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.button :submit, class: "vehicle_form__button vehicle_form__button--submit" %>
     <% end %>
     <%= link_to "Go back", user_path(current_user), class: "vehicle-form__button" %>
