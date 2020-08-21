@@ -19,7 +19,7 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
     if @vehicle.save
-      redirect_to vehicle_path(@vehicle)
+      redirect_to user_path(current_user)
     else
       render :new
     end
