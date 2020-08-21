@@ -1,28 +1,43 @@
 .page-container {
-
-}
-
-.vehicle-form-container {
-
+    padding: 0 32px;
 }
 
 .vehicle-form {
     $this: &;
+    max-width: 960px;
+    box-shadow: 0 0 7px 0 rgba(0,0,0,.5);
+    margin: 32px auto;
+    padding: 32px;
 
-    &__category {
+    &__title {
 
     }
 
-    &__model {
-        
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
-    &__description {
-        
+
+    &__input-container {
+
     }
-    &__price {
-        
+
+    &__label {
+
     }
-    &__address {
-        
+
+    &__input {
+
+    }
+
+    &__button {
+        display: block;
+        width: fit-content;
+        padding: 10px;
+        // margin-top: 30px;
+        background-color: rgb(22, 128, 251);
+        color: white;
+        text-align: center;
     }
 }
